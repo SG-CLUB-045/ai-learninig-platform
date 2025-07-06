@@ -4,8 +4,8 @@ import React from "react";
 
 function AppHeader() {
     return (
-        <div className="p-4 flex justify-between items-center shadow-sm">
-            <SidebarTrigger />
+        <div className="p-4 flex justify-between items-center shadow-sm" >
+            <SidebarTrigger/>
             <UserButton />
         </div>
     )
