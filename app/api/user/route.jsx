@@ -1,22 +1,23 @@
+import { db } from "@/config/db";
 import { usersTable } from "@/config/schema";
 import { eq } from "drizzle-orm";
 import { NextResponse } from "next/server";
 
 export async function POST(req) {
 
-    const {email,name}=await req.json();
+    const { email, name } = await req.json();
+    // Check if user already exists
+    const users = await db.select().from(usersTable).where(eq(usersTable.email, email));
 
-    // if user alreasy exists
-    const user=await db.select().from(usersTable).where(eq(usersTable.email, email));
-
-    // if user not existss
-    if(user?.length==0){
-        const newuser= await db.insert(usersTable).values({
-            email:email,
-            name:name
+    // If user does not exist, create a new user
+    if (users.length === 0) {
+        const newUser = await db.insert(usersTable).values({
+            email: email,
+            name: name
         }).returning(usersTable);
-        return NextResponse.json(newuser[0]);
+        console.log(newUser);
+        return NextResponse.json(newUser);
     }
 
-    return NextResponse.json(user[0]);
+    return NextResponse.json(users[0]);
 }

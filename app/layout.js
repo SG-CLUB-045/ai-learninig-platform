@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: "LearnSphere",
-  description: "Building an AI Learning Platform",
+  description: "Building an AI Learning Platform", 
 };
 
 export default function RootLayout({ children }) {
@@ -28,7 +28,7 @@ export default function RootLayout({ children }) {
           <Provider>
             {children}
           </Provider>
-        </body>
+        </body >
       </html>
     </ClerkProvider>
   );
