@@ -97,9 +97,9 @@ function AddCourseDialog({ children }) {
                                             <SelectValue placeholder="Select Difficulty Level" />
                                         </SelectTrigger>
                                         <SelectContent>
-                                            <SelectItem value="beginner">Beginner</SelectItem>
-                                            <SelectItem value="moderate">Moderate</SelectItem>
-                                            <SelectItem value="advanced">Advanced</SelectItem>
+                                            <SelectItem value="Beginner">Beginner</SelectItem>
+                                            <SelectItem value="Moderate">Moderate</SelectItem>
+                                            <SelectItem value="Advanced">Advanced</SelectItem>
                                         </SelectContent>
                                     </Select>
                                 </div>
