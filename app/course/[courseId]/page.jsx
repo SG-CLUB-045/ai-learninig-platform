@@ -26,7 +26,7 @@ function Course() {
             </div>
             <div className='flex gap-10'>
                 <ChapterListSidebar courseInfo={courseInfo} />
-                <ChapterContent courseInfo={courseInfo}/>
+                <ChapterContent courseInfo={courseInfo} refreshData={()=>GetEnrolledCourseById()}/>
             </div>
         </div>
     );
