@@ -17,13 +17,13 @@ function ChapterListSidebar({ courseInfo }) {
     
     const courseContent = courseInfo?.courses?.courseContent;
     return (
-        <div className='w-80 bg-secondary h-screen p-5'>
+        <div className='w-80 bg-secondary h-screen p-5 flex-shrink-0 sticky top-0 overflow-y-auto'>
             <h2 className='mt-3 font-bold text-xl'>Chapters ({courseContent?.length})</h2>
             <Accordion type="single" collapsible>
                 {courseContent?.map((chapter, index) => (
-                    <AccordionItem value={chapter?.courseData?.chapterName} key={index} onClick={()=> setSelectedChapterIndex(index)}>
+                    <AccordionItem value={chapter?.courseData?.chapterName || `Chapter ${index + 1}`} key={index} onClick={()=> setSelectedChapterIndex(index)}>
                         <AccordionTrigger className={`text-lg font-medium ${completedChapter.includes(index) ? 'bg-green-100 text-green-900' : ''}`}>
-                            {index+1}. {chapter?.courseData?.chapterName}
+                            {index+1}. {chapter?.courseData?.chapterName || "Untitled Chapter"}
                         </AccordionTrigger>
                         <AccordionContent asChild>
                             <div>
