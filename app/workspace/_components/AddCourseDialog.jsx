@@ -27,6 +27,8 @@ import { useRouter } from "next/navigation";
 
 function AddCourseDialog({ children }) {
     const [loading, setLoading] = useState(false);
+    const [open, setOpen] = useState(false);
+
 
     const [formdata, setFormData] = useState({
         name: '',
@@ -58,7 +60,8 @@ function AddCourseDialog({ children }) {
             });
             console.log(result.data);
             setLoading(false);
-            router.push('/workspace/edit-course/'+result.data?.courseId);
+            setOpen(false);
+            router.push('/workspace');
         }
         catch (e) {
             setLoading(false);
@@ -66,7 +69,7 @@ function AddCourseDialog({ children }) {
         }
     }
     return (
-        <Dialog>
+        <Dialog open={open} onOpenChange={setOpen}>
             <DialogTrigger asChild>{children}</DialogTrigger>
             <DialogContent>
                 <DialogHeader>
