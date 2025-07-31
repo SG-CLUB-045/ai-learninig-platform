@@ -34,11 +34,11 @@ const SideBarOptions = [
         icon: Compass,
         path: '/workspace/explore'
     },
-    {
-        title: 'AI Tools',
-        icon: PencilRulerIcon,
-        path: '/workspace/ai-tools'
-    },
+    // {
+    //     title: 'AI Tools',
+    //     icon: PencilRulerIcon,
+    //     path: '/workspace/ai-tools'
+    // },
     // {
     //     title: 'Billing',
     //     icon: WalletCards,
@@ -70,7 +70,7 @@ function AppSidebar() {
                             {SideBarOptions.map((item, index) => (
                                 <SidebarMenuItem key={index}>
                                     <SidebarMenuButton asChild className={'p-5'} >
-                                        <Link href={item.path} className={`text-[17px] ${path.includes(item.path) && 'text-primary bg-purple-80'}`} >
+                                        <Link href={item.path} className={`text-[17px] ${path === item.path && 'bg-primary text-white'}`} >
                                             <item.icon className='h-7 w-7' />
                                             <span>{item.title}</span>
                                         </Link>

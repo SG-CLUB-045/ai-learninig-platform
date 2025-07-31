@@ -25,7 +25,7 @@ function Explore() {
             <h2 className="font-bold text-3xl mb-6">
                 Explore More Courses
             </h2>
-            <div className="flex gap-5 max-w-md">
+            <div className="flex gap-5 max-w-md mb-5">
                 <Input placeholder="search" />
                 <Button><Search /> Search</Button>
             </div>
