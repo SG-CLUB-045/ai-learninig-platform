@@ -9,8 +9,16 @@ function EnrollCourseCard({ course, enrollCourse}) {
     const courseJson = course?.courseJson?.course;
 
     const calculateProgress = () => {
-        return (enrollCourse?.completedChapters?.lengthh??0/course?.courseContent?.length)*100;
+        const completedChapters = enrollCourse?.completedChapters?.length || 0;
+        const totalChapters = course?.courseContent?.length;
+        if (!totalChapters) {
+            return 0;
+        }
+        return (completedChapters / totalChapters) * 100;
     }
+    // const calculateProgress = () => {
+    //     return (enrollCourse?.completedChapters?.length??0/course?.courseContent?.length)*100;
+    // }
     return (
         <div className="shadow rounded-xl">
             <Image src={course?.imageURL} alt={course?.name} width={400} height={300} className="w-full aspect-video rounded-xl object-cover" />

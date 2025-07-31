@@ -5,6 +5,7 @@ import ChapterListSidebar from '../_components/ChapterListSidebar';
 import ChapterContent from '../_components/ChapterContent';
 import { useParams } from 'next/navigation';
 import axios from 'axios';
+import Image from 'next/image';
 
 function Course() {
     const { courseId } = useParams();
@@ -22,6 +23,8 @@ function Course() {
     return (
         <div>
             <div className="p-4 flex justify-between items-center shadow-sm" >
+                <Image src={'/logo.svg'} alt="logo" width={200} height={200} />
+                <span></span>
                 <UserButton />
             </div>
             <div className='flex gap-10'>
